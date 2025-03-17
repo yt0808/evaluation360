@@ -17,8 +17,6 @@ class AnswerForm(forms.ModelForm):  # 回答フォーム
         role = cleaned_data.get("reviewee_role")
         question3 = cleaned_data.get("question3")
 
-        print(f"デバッグ: reviewee_role = {role}")  # ここでログ出力
-
         # マネージャー・リーダー以外は質問3を無効にする
         if role in ["general"] and question3 is not None: # 一般を弾く
             self.add_error("question3", "被り評価者がリーダー、マネージャーのみ回答してください")

@@ -121,20 +121,6 @@ def evaluation_result_detail(request, form_title):
         'gap': gap
     })
 
-# @user_passes_test(is_admin)
-# def create_evaluation_form(request):
-#     """管理者が評価フォームを作成する画面"""
-#     if request.method == "POST":
-#         form = EvaluationFormForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('home')  # 管理画面がない場合はホームへ
-
-#     else:
-#         form = EvaluationFormForm()
-
-#     return render(request, 'accounts/create_evaluation_form.html', {'form': form})
-
 def is_admin(user):
     """管理者判定関数"""
     return user.is_superuser
