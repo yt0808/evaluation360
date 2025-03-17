@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>エラー</h2>
+    <p>{{ message }}</p>
+    <a href="{% url 'home' %}">ホームに戻る</a>
+</div>
+{% endblock %}

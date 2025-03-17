@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>評価結果一覧</h2>
+
+{% if evaluation_groups %}
+    <ul>
+        {% for form_title, evaluation_form in evaluation_groups.items %}
+            <li>
+                <a href="{% url 'evaluation_result_detail' form_title=form_title %}">
+                    {{ form_title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>評価結果がありません。</p>
+{% endif %}
+
+<a href="{% url 'home' %}">ホームへ戻る</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ user.username }} の評価結果</h2>
+
+<h3>質問ごとの平均スコア</h3>
+<table border="1">
+    <tr>
+        <th>質問</th>
+        <th>他人からの評価平均</th>
+        <th>自分の評価</th>
+        <th>ギャップ</th>
+    </tr>
+    <tr>
+        <td>質問1</td>
+        <td>{{ received_avg.question1_avg|default:"-" }}</td>
+        <td>{{ given_avg.question1_avg|default:"-" }}</td>
+        <td>{{ gap.question1|default:"-" }}</td>
+    </tr>
+    <tr>
+        <td>質問2</td>
+        <td>{{ received_avg.question2_avg|default:"-" }}</td>
+        <td>{{ given_avg.question2_avg|default:"-" }}</td>
+        <td>{{ gap.question2|default:"-" }}</td>
+    </tr>
+    <tr>
+        <td>質問3</td>
+        <td>{{ received_avg.question3_avg|default:"-" }}</td>
+        <td>{{ given_avg.question3_avg|default:"-" }}</td>
+        <td>{{ gap.question3|default:"-" }}</td>
+    </tr>
+</table>
+
+<a href="{% url 'evaluation_result_list' %}">評価一覧に戻る</a>
+{% endblock %}
